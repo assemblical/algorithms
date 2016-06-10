@@ -1,3 +1,6 @@
+#ifndef ALGORITHM_UTIL
+#define ALGORITHM_UTIL
+
 namespace algorithm {
 
     template <typename T>
@@ -7,4 +10,6 @@ namespace algorithm {
         second = tmp;
     }
     
-}
+} // algorithm
+
+#endif // ALGORITHM_UTIL
