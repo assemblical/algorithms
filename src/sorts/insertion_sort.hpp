@@ -4,8 +4,8 @@
 namespace algorithm {
 
     // insertion sort operating in O(n^2)
-    template <typename container_t>
-    inline void insertion_sort(container_t& container) noexcept {
+    template <typename ContainerT>
+    inline void insertion_sort(ContainerT& container) noexcept {
         const size_t containerSize = container.size();
 
         if (containerSize < 2) {
