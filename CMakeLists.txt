@@ -1,7 +1,9 @@
-cmake_minimum_required(VERSION 3.5)
-project(algorithms)
+CMAKE_MINIMUM_REQUIRED(VERSION 3.5)
+PROJECT(algorithms)
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14")
+SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14")
 
-set(SOURCE_FILES main.cpp)
-add_executable(algorithms ${SOURCE_FILES})
+ADD_SUBDIRECTORY(src)
+SET(SOURCE_FILES main.cpp)
+
+ADD_EXECUTABLE(algorithms_test ${SOURCE_FILES})
