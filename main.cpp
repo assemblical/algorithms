@@ -5,7 +5,7 @@
 using namespace std;
 
 int main() {
-    std::vector<int> vec = {5,4,3};
+    std::vector<int> vec = {5,4,3,2};
     algorithm::merge_sort(vec);
 
     for (auto &  elem : vec) {
