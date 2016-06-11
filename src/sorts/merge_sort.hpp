@@ -9,8 +9,8 @@ namespace algorithm {
         size_t n1 = q - p + 1;
         size_t n2 = r - q;
 
-        ContainerT left(n1 + 2);
-        ContainerT right(n2 + 2);
+        ContainerT left(n1 + 1);
+        ContainerT right(n2 + 1);
 
         for (size_t i = 1; i <= n1; ++i) {
             left.at(i) = container.at(p + i - 1);
@@ -19,8 +19,6 @@ namespace algorithm {
         for (size_t j = 1; j <= n2; ++j) {
             right.at(j) = container.at(q + j);
         }
-        left[n1 + 1] = std::numeric_limits<typename ContainerT::value_type>::max();
-        right[n2 + 1] = std::numeric_limits<typename ContainerT::value_type>::max();
 
         for (size_t k = p, i = 1, j = 1; k <= r; ++k) {
 
@@ -28,6 +26,18 @@ namespace algorithm {
                 container.at(k) = left.at(i++);
             } else {
                 container.at(k) = right.at(j++);
+            }
+
+            if (i == n1 + 1) {
+                for (++k; j <= n2; ++k) {
+                    container.at(k) = right.at(j++);
+                }
+                break;
+            } else if (j == n2 + 1) {
+                for (++k; i <= n1; ++k) {
+                    container.at(k) = left.at(i++);
+                }
+                break;
             }
         }
     }
