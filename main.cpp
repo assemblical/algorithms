@@ -10,7 +10,7 @@ int main() {
 
     for (auto &  elem : vec) {
         std::cout << elem << std::endl;
-}
+    }
 
     return 0;
 }
