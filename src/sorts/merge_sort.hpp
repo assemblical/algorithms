@@ -2,6 +2,8 @@
 #define ALGORITHM_MERGE_SORT
 
 namespace algorithm {
+
+    // merge sort operating in O(n log(n))
     template <typename ContainerT>
     inline void merge(ContainerT& container, size_t p, size_t q, size_t r) {
         size_t n1 = q - p + 1;

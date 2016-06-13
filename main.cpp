@@ -1,12 +1,12 @@
 #include <iostream>
 #include <vector>
-#include "src/sorts/merge_sort.hpp"
+#include "src/sorts/insertion_sort_recursive.hpp"
 
 using namespace std;
 
 int main() {
-    std::vector<int> vec = {5,4,3,2,1,1};
-    algorithm::merge_sort(vec);
+    std::vector<int> vec = {5,4,3,2,1};
+    algorithm::insertion_sort_recursive(vec);
 
     for (auto &  elem : vec) {
         std::cout << elem << std::endl;
