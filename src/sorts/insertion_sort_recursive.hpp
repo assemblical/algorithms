@@ -2,9 +2,10 @@
 #define ALGORITHM_INSERTION_SORT_RECURSIVE_HPP
 
 namespace algorithm {
+namespace detail {
 
-    template <typename ContainerT>
-    inline void _insertion_sort_recursive(ContainerT& container, size_t p, size_t q) noexcept {
+    template<typename ContainerT>
+    inline void _insertion_sort_recursive(ContainerT &container, size_t p, size_t q) noexcept {
         if (p > 0) {
             _insertion_sort_recursive(container, p - 1, q);
 
@@ -17,12 +18,12 @@ namespace algorithm {
             container.at(j + 1) = key;
         }
     }
+} // detail
 
-    template <typename ContainerT>
-    inline void insertion_sort_recursive(ContainerT& container) noexcept {
-        _insertion_sort_recursive(container, container.size() - 1, container.size() - 1);;
+    template<typename ContainerT>
+    inline void insertion_sort_recursive(ContainerT &container) noexcept {
+        detail::_insertion_sort_recursive(container, container.size() - 1, container.size() - 1);;
     }
-
 } // algorithm
 
 #endif // ALGORITHM_INSERTION_SORT_RECURSIVE_HPP

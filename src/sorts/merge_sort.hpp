@@ -2,6 +2,7 @@
 #define ALGORITHM_MERGE_SORT
 
 namespace algorithm {
+namespace detail {
 
     // merge sort operating in O(n log(n))
     template <typename ContainerT>
@@ -52,10 +53,11 @@ namespace algorithm {
             merge(container, p, q, r);
         }
     }
+} // detail
 
     template <typename ContainerT>
     inline void merge_sort(ContainerT& container) {
-        _merge_sort(container, 0, container.size() - 1);
+        detail::_merge_sort(container, 0, container.size() - 1);
     }
 
 } // algorithm
