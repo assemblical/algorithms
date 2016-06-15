@@ -6,15 +6,24 @@ namespace algorithm {
     template <typename ContainerT>
     inline bool binary_search(ContainerT& container, const typename ContainerT::value_type& searchValue) noexcept {
 
-        size_t p = 0;
-        size_t q = container.size() / 2;
-        size_t r = container.size() - 1;
+        int q = container.size() / 2;
+        int r = container.size();
 
-        while () {
-            
+        while (q < r) {
+            auto& currentElement = container.at(q);
+
+            if (currentElement == searchValue) {
+                return true;
+            }
+            if (searchValue < currentElement) {
+                r = q;
+                q = q / 2;
+            }
+            if (searchValue > currentElement) {
+                q = (q + 1 + r) / 2;
+            }
         }
-        // if groesser
-        // if kleiner
+        return false;
     }
 
 } // algorithm
