@@ -1,19 +1,19 @@
 #include <iostream>
 #include <vector>
 #include "src/sorts/merge_sort.hpp"
-#include "src/search/binary_search.hpp"
+#include "src/search/binary_search_recursive.hpp"
+#include "src/sorts/insertion_sort.hpp"
 
 using namespace std;
 
 int main() {
-    std::vector<int> vec = {5,4,3,2,1};
+    vector<int> vec = {5,4,3,2,1};
     algorithm::merge_sort(vec);
-    bool result = algorithm::binary_search(vec, 5);
-
-    std::cout << result << std::endl;
+    auto b = algorithm::binary_search_recursive(vec, 6);
+    cout << b << endl;
 
     for (auto &  elem : vec) {
-        std::cout << elem << std::endl;
+        cout << elem << endl;
     }
 
     return 0;
