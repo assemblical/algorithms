@@ -9,9 +9,7 @@ using namespace std;
 
 int main() {
     vector<int> vec = {5,4,3,2,1};
-    algorithm::merge_sort(vec);
-    auto b = algorithm::binary_search(vec, 4);
-    cout << b << endl;
+    algorithm::insertion_sort(vec);
 
     for (auto &  elem : vec) {
         cout << elem << endl;

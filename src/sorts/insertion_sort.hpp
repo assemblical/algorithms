@@ -3,7 +3,7 @@
 
 namespace algorithm {
 
-    // insertion sort operating in O(n^2)
+    // insertion sort operating in O(nlog(n))
     template <typename ContainerT>
     inline void insertion_sort(ContainerT& container) noexcept {
         const size_t containerSize = container.size();
@@ -15,30 +15,30 @@ namespace algorithm {
         for (size_t i = 1; i < containerSize; ++i) {
             auto key = container.at(i);
 
-            // binary search range until element that is smaller or equal
-            // insert element and add shift all succeding elements by 1
-
-            size_t p = 0;
-            size_t r = i;
-            size_t q = r / 2;
+            // binary search for insert position
+            int r = i;
+            int q = r / 2;
             while (q < r) {
-                auto &elem = container.at(p);
+                auto &elem = container.at(q);
+
+                if (key == elem) {
+                    break;
+                }
 
                 // if greater
-                if (elem > key) {
-
+                if (key > elem) {
+                    q = (q + 1 + r) / 2;
                 }
 
                 // if smaller
-                if (elem < key) {
-
+                if (key < elem) {
+                    r = q;
+                    q = q / 2;
                 }
-
-                q = (p + r) / 2;
             }
 
             int j;
-            for (j = static_cast<int>(i - 1); j >= 0 && container.at(j) > key; --j) {
+            for (j = static_cast<int>(i - 1); j >= q; --j) {
                 container.at(j + 1) = container.at(j);
             }
 
