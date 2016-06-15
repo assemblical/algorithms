@@ -12,7 +12,7 @@ namespace algorithm {
             return;
         }
 
-        for (size_t i = 1; i < containerSize; ++i) {
+        for (int i = 1; i < containerSize; ++i) {
             auto key = container.at(i);
 
             // binary search for insert position
@@ -25,12 +25,10 @@ namespace algorithm {
                     break;
                 }
 
-                // if greater
                 if (key > elem) {
                     q = (q + 1 + r) / 2;
                 }
 
-                // if smaller
                 if (key < elem) {
                     r = q;
                     q = q / 2;
@@ -38,7 +36,7 @@ namespace algorithm {
             }
 
             int j;
-            for (j = static_cast<int>(i - 1); j >= q; --j) {
+            for (j = i - 1; j >= q; --j) {
                 container.at(j + 1) = container.at(j);
             }
 
