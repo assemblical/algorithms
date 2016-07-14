@@ -11,7 +11,7 @@
 using namespace std;
 
 int main() {
-    vector<int> vec = {6,5,-20,3,2,1};
+    vector<int> vec = {6,5,-20,3,8,-30,1,14};
     auto tup = algorithm::maximum_subarray_linear(vec);
 
 //    for (auto &  elem : vec) {
