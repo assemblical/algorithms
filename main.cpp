@@ -7,12 +7,14 @@
 #include "src/search/maximum_subarray_recursive.hpp"
 #include "src/search/maximum_subarray_bruteforce.hpp"
 #include "src/search/maximum_subarray_linear.hpp"
+#include "src/math/binomial.hpp"
 
 using namespace std;
 
 int main() {
-    vector<int> vec = {6,5,-20,3,8,-30,1,14};
-    auto tup = algorithm::maximum_subarray_linear(vec);
+//    vector<int> vec = {6,5,-20,3,8,-30,1,14};
+    auto pair = algorithm::binom(4, 1, 1);
+    cout << pair.second << endl << pair.first;
 
 //    for (auto &  elem : vec) {
 //        cout << elem << endl;
