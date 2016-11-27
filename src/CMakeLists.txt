@@ -11,7 +11,8 @@ SET(SEARCH_HPP_FILES
         search/maximum_subarray_bruteforce.hpp)
 
 SET(MATH_HPP_FILES
-        math/binomial.hpp)
+        math/binomial.hpp
+        math/gauss_elimination.hpp)
 
 SET(UTIL_HPP_FILES
         util.hpp)

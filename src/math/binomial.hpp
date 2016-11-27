@@ -1,6 +1,8 @@
 #ifndef ALGORITHMS_BINOM_HPP
 #define ALGORITHMS_BINOM_HPP
 
+#include <cmath>
+
 namespace algorithm {
 
     // returns the resulting binomial as a string as well as its result

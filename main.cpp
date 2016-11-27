@@ -1,24 +1,17 @@
 #include <iostream>
 #include <vector>
-#include "src/sorts/merge_sort.hpp"
-#include "src/search/binary_search_recursive.hpp"
-#include "src/search/binary_search.hpp"
-#include "src/sorts/insertion_sort.hpp"
-#include "src/search/maximum_subarray_recursive.hpp"
-#include "src/search/maximum_subarray_bruteforce.hpp"
-#include "src/search/maximum_subarray_linear.hpp"
 #include "src/math/binomial.hpp"
+#include "src/math/gauss_elimination.hpp"
 
 using namespace std;
 
 int main() {
-//    vector<int> vec = {6,5,-20,3,8,-30,1,14};
-    auto pair = algorithm::binom(4, 1, 1);
-    cout << pair.second << endl << pair.first;
+    std::vector<std::vector<int>> mat  = {{4, 2, 1}, {2, 3, 5}};
+    auto result = algorithm::gauss_elimination(mat);
 
-//    for (auto &  elem : vec) {
-//        cout << elem << endl;
-//    }
+    for (auto &  elem : result) {
+        cout << elem << endl;
+    }
 
     return 0;
 }

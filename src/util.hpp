@@ -9,7 +9,7 @@ namespace algorithm {
         first = second;
         second = tmp;
     }
-    
+
 } // algorithm
 
 #endif // ALGORITHM_UTIL
