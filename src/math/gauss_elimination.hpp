@@ -19,15 +19,18 @@ namespace algorithm {
                 return resultList;
             }
 
+            Matrix<NumberT> resultMatrix = {};
+
             auto rowSize = polynomialMatrix.size();
             for (int i = 1; i < rowSize; ++i) {
+                resultMatrix.push_back({});
 
                 printf("%i,%i,%i\n", polynomialMatrix[i][0],polynomialMatrix[i - 1][0],polynomialMatrix[i][0]);
                 NumberT factor = polynomialMatrix[i - 1][0] / polynomialMatrix[i][0];
-                printf("%i", factor);
 
                 auto columnSize = polynomialMatrix[i].size();
                 for (int j = 1; j < columnSize; ++j) {
+                    resultMatrix[i - 1][j] = polynomialMatrix[i][j] * factor;
                 }
         }
 
