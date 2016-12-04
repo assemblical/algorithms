@@ -43,9 +43,10 @@ namespace algorithm {
 
             _gauss_elimination(resultMatrix, interpolatedPolynomial);
             auto resultFunctionValuePos = resultMatrix[0].size() - 1;
-            double resultFunctionValue = 0;
-            for (int k = interpolatedPolynomial.size(); k > 0; --k) {
-                resultFunctionValue -= polynomialMatrix[0][k] * interpolatedPolynomial[k];
+            double resultFunctionValue = polynomialMatrix[0][polynomialMatrix[0].size() - 1];
+            for (int k = interpolatedPolynomial.size() - 1; k >= 0; --k) {
+                double val = polynomialMatrix[0][k + 1] * interpolatedPolynomial[k];
+                resultFunctionValue -= val;
             }
             interpolatedPolynomial.insert(interpolatedPolynomial.begin(),
                                           resultFunctionValue / polynomialMatrix[0][resultFunctionValuePos - 1]);
