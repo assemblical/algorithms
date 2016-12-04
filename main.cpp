@@ -6,8 +6,8 @@
 using namespace std;
 
 int main() {
-    std::vector<std::vector<int>> mat  = {{4, 2, 1}, {2, 3, 5}};
-    auto result = algorithm::gauss_elimination(mat);
+    std::vector<std::vector<double>> points  = {{4, 2}, {3, 1}};
+    auto result = algorithm::gauss_elimination(points);
 
     for (auto &  elem : result) {
         cout << elem << endl;

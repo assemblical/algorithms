@@ -25,36 +25,47 @@ namespace algorithm {
             for (int i = 1; i < rowSize; ++i) {
                 resultMatrix.push_back({});
 
-                printf("%i,%i,%i\n", polynomialMatrix[i][0],polynomialMatrix[i - 1][0],polynomialMatrix[i][0]);
-                NumberT factor = polynomialMatrix[i - 1][0] / polynomialMatrix[i][0];
+//                printf("%i,%i,%i\n", polynomialMatrix[i][0],polynomialMatrix[i - 1][0],polynomialMatrix[i][0]);
+                double fac1 = polynomialMatrix[i - 1][0];
+                double fac2 = polynomialMatrix[i][0];
+                double fac = fac1 / fac2;
 
-                auto columnSize = polynomialMatrix[i].size();
-                for (int j = 1; j < columnSize; ++j) {
-                    resultMatrix[i - 1][j] = polynomialMatrix[i][j] * factor;
+                auto columnCount = polynomialMatrix[i].size();
+                for (int j = 1; j < columnCount; ++j) {
+                    double newValue = polynomialMatrix[i - 1][j] - polynomialMatrix[i][j] * fac;
+                    resultMatrix[i - 1].emplace_back(newValue);
                 }
-        }
+            }
 
             return resultList;
 
         }
     } // detail
 
-    // solves a linear system of equations with the gauss elimination
+    // solve a linear equation system for unknown coefficients
     template <typename NumberT>
-    inline std::forward_list<NumberT> gauss_elimination(Matrix<NumberT> polynomialMatrix)
+    inline std::forward_list<NumberT> gauss_elimination(Matrix<NumberT> points)
     {
+        // a0 + a1 x1 + a2 x1 ^ 2... = y1
+        // a0 + a1 x2 + a2 x2 ^ 2... = y2
+        // matrix format = {{ x1, x1 ^ 2, y1 },
+        //                  { x2, x2 ^ 2, y2 }}
+        Matrix<NumberT> polynomialMatrix;
         std::forward_list<NumberT> resultList;
+
+        // rows specify the number of coefficients (-1)
+        size_t pointCount = points.size();
+
+        for (int i = 0; i < pointCount; ++i) {
+            //columns
+            polynomialMatrix.push_back({});
+            for (int j = 0; j < pointCount; ++j) {
+                polynomialMatrix[i].emplace_back(std::pow(points[i][0], j + 1));
+            }
+            // emplace function value
+            polynomialMatrix[i].emplace_back(points[i][1]);
+        }
         detail::_gauss_elimination(polynomialMatrix, resultList);
-//        auto tmpMat = polynomialMatrix;
-//
-//        auto rowSize = polynomialMatrix.size();
-//        for (int i = 1; i < rowSize; ++i) {
-//
-//            auto columnSize = polynomialMatrix[i].size();
-//            for (int j = 1; j < columnSize; ++j) {
-//                NumberT factor = polynomialMatrix[i][0] * (polynomialMatrix[i - 1][0] / polynomialMatrix[i][0]);
-//            }
-//        }
         return resultList;
     }
 
