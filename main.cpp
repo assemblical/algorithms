@@ -7,11 +7,11 @@ using namespace std;
 
 int main() {
     std::vector<std::vector<double>> points  = {{4, 2}, {3, 1}};
-    auto result = algorithm::gauss_elimination(points);
+    auto result = algorithm::gauss_elimination<double>(points);
 
-    for (auto &  elem : result) {
-        cout << elem << endl;
-    }
+//    for (auto &  elem : result) {
+//        cout << elem << endl;
+//    }
 
     return 0;
 }
